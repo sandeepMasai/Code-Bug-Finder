@@ -74,6 +74,32 @@ const CodeHistoryTabs = ({ onLoadCode, token }) => {
     });
   };
 
+  const handleDelete = async (e, historyId) => {
+    e.stopPropagation(); // Prevent triggering the parent onClick
+
+    if (!window.confirm('Are you sure you want to delete this code history?')) {
+      return;
+    }
+
+    try {
+      await axios.delete(API_ENDPOINTS.HISTORY.DELETE(historyId), {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      // Refresh the history list
+      fetchHistory();
+    } catch (err) {
+      alert(err.response?.data?.error || 'Failed to delete history');
+    }
+  };
+
+  const handleEdit = (e, history) => {
+    e.stopPropagation();
+    handleLoadCode(history);
+  };
+
   const formatRelativeTime = (dateString) => {
     const date = new Date(dateString);
     const now = new Date();
@@ -255,17 +281,40 @@ const CodeHistoryTabs = ({ onLoadCode, token }) => {
                   </div>
                 </div>
 
-                {/* Error Count Badge */}
-                {history.errors && history.errors.length > 0 && (
-                  <div className="flex-shrink-0 ml-2">
+                {/* Action Buttons and Error Count Badge */}
+                <div className="flex items-center space-x-2 flex-shrink-0 ml-2">
+                  {/* Edit Button */}
+                  <button
+                    onClick={(e) => handleEdit(e, history)}
+                    className="p-1.5 text-gray-400 hover:text-blue-400 hover:bg-blue-500/10 rounded transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100"
+                    title="Edit/Load this code"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                  </button>
+
+                  {/* Delete Button */}
+                  <button
+                    onClick={(e) => handleDelete(e, history._id || history.id)}
+                    className="p-1.5 text-gray-400 hover:text-red-400 hover:bg-red-500/10 rounded transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100"
+                    title="Delete this history"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                  </button>
+
+                  {/* Error Count Badge */}
+                  {history.errors && history.errors.length > 0 && (
                     <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-500/20 text-red-400 border border-red-500/30">
                       <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                       </svg>
                       {history.errors.length}
                     </span>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
 
               {/* Code Preview */}

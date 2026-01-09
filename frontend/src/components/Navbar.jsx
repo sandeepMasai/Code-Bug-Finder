@@ -64,6 +64,18 @@ const Navbar = () => {
               {user ? (
                 <>
                   <Link
+                    to="/"
+                    className="px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to="/about"
+                    className="px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                  >
+                    About
+                  </Link>
+                  <Link
                     to="/debug"
                     className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center space-x-2 group"
                   >
@@ -88,7 +100,7 @@ const Navbar = () => {
                     Features
                   </a>
                   <Link
-                    to="/auth"
+                    to="/about"
                     className="px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
                   >
                     About
@@ -127,9 +139,8 @@ const Navbar = () => {
                     </div>
                     <span className="text-white font-medium hidden sm:block">{user.username}</span>
                     <svg
-                      className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
-                        showUserMenu ? 'rotate-180' : ''
-                      }`}
+                      className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${showUserMenu ? 'rotate-180' : ''
+                        }`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -192,15 +203,7 @@ const Navbar = () => {
                   >
                     Sign In
                   </button>
-                  <button
-                    onClick={() => navigate('/auth')}
-                    className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center space-x-2"
-                  >
-                    <span>Get Started</span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
+
                 </div>
               )}
             </div>
@@ -213,6 +216,20 @@ const Navbar = () => {
             <div className="px-4 py-4 space-y-2">
               {user ? (
                 <>
+                  <Link
+                    to="/"
+                    onClick={() => setShowMobileMenu(false)}
+                    className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to="/about"
+                    onClick={() => setShowMobileMenu(false)}
+                    className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
+                  >
+                    About
+                  </Link>
                   <Link
                     to="/debug"
                     onClick={() => setShowMobileMenu(false)}
@@ -238,7 +255,7 @@ const Navbar = () => {
                     Features
                   </a>
                   <Link
-                    to="/auth"
+                    to="/about"
                     onClick={() => setShowMobileMenu(false)}
                     className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors"
                   >

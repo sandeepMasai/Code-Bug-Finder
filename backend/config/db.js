@@ -3,14 +3,16 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/code-bug-finder';
+const MONGODB_URI = process.env.MONGODB_URI;
+
+if (!MONGODB_URI) {
+    console.error('MongoDB URI is not defined.');
+    process.exit(1);
+}
 
 const connectDB = async () => {
     try {
-        const conn = await mongoose.connect(MONGODB_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+        const conn = await mongoose.connect(MONGODB_URI);
 
         console.log(`MongoDB Connected: ${conn.connection.host}`);
         return conn;
@@ -21,4 +23,3 @@ const connectDB = async () => {
 };
 
 export default connectDB;
-

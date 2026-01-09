@@ -27,80 +27,8 @@ const Welcome = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="fixed inset-0 z-0 overflow-hidden">
-        {/* Animated Gradient Background */}
-        <div className="absolute inset-0 animate-gradient-shift" style={{
-          background: 'linear-gradient(-45deg, #1e3a8a, #581c87, #7c2d12, #1e3a8a)',
-          backgroundSize: '400% 400%',
-        }}></div>
-
-        {/* Floating AI Icons */}
-        <div className="absolute inset-0">
-          {/* Code Brackets */}
-          <div className="absolute top-20 left-10 text-blue-400/30 animate-float-slow">
-            <svg className="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-          </div>
-
-          {/* AI Brain */}
-          <div className="absolute top-40 right-20 text-purple-400/30 animate-float-medium">
-            <svg className="w-32 h-32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-            </svg>
-          </div>
-
-          {/* Code Symbol */}
-          <div className="absolute bottom-32 left-1/4 text-pink-400/30 animate-float-fast">
-            <svg className="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-            </svg>
-          </div>
-
-          {/* Bug Icon */}
-          <div className="absolute bottom-20 right-1/3 text-red-400/30 animate-float-slow">
-            <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
-          </div>
-
-          {/* Checkmark */}
-          <div className="absolute top-1/3 left-1/3 text-green-400/30 animate-float-medium">
-            <svg className="w-28 h-28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-
-          {/* Lightning */}
-          <div className="absolute top-1/2 right-1/4 text-yellow-400/30 animate-float-fast">
-            <svg className="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-        </div>
-
-        {/* Animated Particles */}
-        <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20 animate-particle"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                width: `${Math.random() * 8 + 4}px`,
-                height: `${Math.random() * 8 + 4}px`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${Math.random() * 10 + 10}s`,
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-      </div>
+      {/* Simple Background */}
+      <div className="fixed inset-0 z-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
 
       {/* Hero Section */}
       <section className="relative z-10 overflow-hidden">
@@ -380,7 +308,7 @@ const Welcome = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative z-10 bg-gradient-to-r from-blue-600 to-purple-600 py-20">
+      <section className="relative z-10  py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Get started in 2 clicks.
