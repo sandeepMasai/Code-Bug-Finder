@@ -2,6 +2,12 @@
 
 An AI-powered full-stack application that analyzes code for bugs, spelling mistakes, and provides intelligent improvements based on user preferences. Built with React, Node.js, Express, and OpenAI API.
 
+
+AI Code Bug Finder is an intelligent web-based tool that automatically analyzes source code to detect bugs, logical errors, syntax issues, and potential code smells. It leverages AI-powered analysis combined with static code checking rules to help developers write cleaner, safer, and more maintainable code.
+
+This tool is designed for students, developers, and teams who want fast feedback on their code without manual reviews.
+
+
 ## Features
 
 - **AI-Powered Bug Detection**: Automatically finds syntax and logical errors in your code
