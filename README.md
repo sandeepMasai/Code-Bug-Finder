@@ -274,14 +274,3 @@ npm start
 - [ ] User authentication and history
 - [ ] Export results as PDF/JSON
 
-## License
-
-MIT
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Resume Line
-
-Built an AI-powered Code Bug Finder using React, Node.js, and OpenAI API to detect, explain, and fix programming errors with line-by-line highlighting and preference-based improvements.
